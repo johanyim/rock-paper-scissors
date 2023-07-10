@@ -1,16 +1,16 @@
 let win = function(p, c) {
-    console.log("You played " + p
-    + ". The computer played " + c + ". You Win!");
+    return "You played " + p
+    + ". The computer played " + c + ". You Win!";
 }
 
 let lose = function(p, c) {
-    console.log("You played " + p 
-    + ". The computer played " + c + ". You Lose!");
+    return "You played " + p 
+    + ". The computer played " + c + ". You Lose!";
 }
 
 let tie = function(p, c) {
-    console.log("You played " + p
-    + ". The computer played " + c + ". You Tie!");
+    return "You played " + p
+    + ". The computer played " + c + ". You Tie!";
 }
 
 
@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection,
     let p = moveMap.get(playerSelection.toLowerCase());
     let c = moveMap.get(computerSelection.toLowerCase());
 
-    outcome[p][c](playerSelection.toLowerCase(),computerSelection.toLowerCase())
+    return outcome[p][c](playerSelection.toLowerCase(),computerSelection.toLowerCase())
 }
 
 
@@ -66,4 +66,4 @@ function getPlayerChoice() {
 }
 
 
-playRound(getPlayerChoice(), getComputerChoice(), win, lose, tie)
+console.log(playRound(getPlayerChoice(), getComputerChoice(), win, lose, tie))
