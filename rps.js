@@ -1,3 +1,5 @@
+const buttons = document.querySelectorAll('.btn')
+
 let win = function(p, c) {
     console.log("You played " + p
     + ". The computer played " + c + ". You Win!");
@@ -52,13 +54,29 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice() { 
-    input = prompt("Your move (Rock, Paper, Scissors)");
+
+
+
+buttons.forEach((button)=>{
+
+    button.addEventListener('click',()=>{
+        let playerChoice = button.id;
+        let computerChoice = getComputerChoice();
+        
+        playRound(playerChoice, computerChoice, win,lose,tie);
+
+    })
+
+})
+
+
+// function getPlayerChoice() { 
+//     input = prompt("Your move (Rock, Paper, Scissors)");
 
     
-    return input.toUpperCase();
+//     return input.toUpperCase();
 
-}
+// }
 
 // const timeout = async ms => new Promise(res => setTimeout(res, ms));
 // let next = false; // this is to be changed on user input
@@ -69,9 +87,10 @@ function getPlayerChoice() {
 // }
 
 
-function play(move) {
-    console.log("Played " + move)
-}
+// function play(move) {
+//     console.log("Played " + move)
+    
+// }
 
 
 
@@ -81,15 +100,18 @@ score = [0,0]
 async function game() {
     let score = [0,0];
     do {
-        outcome = await playRound(getPlayerChoice(), getComputerChoice(), win, lose, tie)
-        // vector addition operation
-        score[0] += outcome[0];
-        score[1] += outcome[1];
+        
+        // outcome = await playRound(getPlayerChoice(), getComputerChoice(), win, lose, tie)
+        // // vector addition operation
+        // score[0] += outcome[0];
+        // score[1] += outcome[1];
 
-        console.log("SCORE:", score)
-        console.log("game has ended");
+        // console.log("SCORE:", score)
+        // console.log("game has ended");
 
-        console.log(score)
+        // console.log(score)
+
+        
     } while(score[0] < 1 && score[1] < 1);
 
 
